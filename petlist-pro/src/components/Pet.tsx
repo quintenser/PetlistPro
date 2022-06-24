@@ -9,7 +9,7 @@ function Pet({ pets, selectedPet, removePet, editPet }:any) {
     const [edit, setEdit] = useState({
         id: null,
         value: '',
-        species: ''
+        kind: ''
     })
 
     const submitEdit = (value: any) => {
@@ -17,7 +17,7 @@ function Pet({ pets, selectedPet, removePet, editPet }:any) {
         setEdit({
             id:null,
             value: '',
-            species: ''
+            kind: ''
         })
     }
 
@@ -29,11 +29,11 @@ function Pet({ pets, selectedPet, removePet, editPet }:any) {
         className={pet.isSelected ? 'pet-row selected' : 'pet-row'} 
         key={index}>
             <div key={pet.id} onClick={() => selectedPet(pet.id)}>
-            {pet.name} {pet.age} {pet.species}
+            {pet.name} {pet.age} {pet.kind}
             </div>
             <div className="icons">
                 <AiOutlineTag
-                onClick={() => setEdit({id: pet.id, value: pet.name, species: pet.species})}
+                onClick={() => setEdit({id: pet.id, value: pet.name, kind: pet.kind})}
                 className='edit-icon'
                 />
                 <FaSkullCrossbones

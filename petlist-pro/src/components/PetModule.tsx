@@ -14,6 +14,7 @@ const petInsight = [
     amount: 0,
     symbol: '🐟'},
   ]
+
 function PetModule(props: any) {
     const [input, setInput] = useState(props.edit ? props.edit.value : '')
     let [species, setSpecies] = useState(props.edit ? props.edit.species : '')
@@ -24,7 +25,6 @@ function PetModule(props: any) {
       }
     })
     const handleChange = (event: any) => {
-      
       setInput(event.target.value);
     }
 
@@ -33,31 +33,21 @@ function PetModule(props: any) {
     }
 
     const handleSubmit = (event: any) => {
+      event.preventDefault();
       if (!species) {
         species = 0;
       }
-      petInsight[species].amount += 1
-      Petoverview();
-      event.preventDefault();
       props.onSubmit({
         id: Math.floor(Math.random() * 10000),
         name: input,
-        species: petInsight[species].symbol,
+        kind: petInsight[species].symbol,
         age: Math.floor(Math.random() * 20)
       });
       setInput('')
     };
 
   return ( 
-    <><div>
-      <h1>Your pets:</h1>
-      <ul>
-        <li value="🐱">🐱 {petInsight[0].amount}</li>
-        <li value="🐶">🐶 {petInsight[1].amount}</li>
-        <li value="🦖">🦖 {petInsight[2].amount}</li>
-        <li value="🐟">🐟 {petInsight[3].amount}</li>
-      </ul>
-    </div><form className="petModule" onSubmit={handleSubmit}>
+    <form className="petModule" onSubmit={handleSubmit}>
         {props.edit ? (
           <>
             <input
@@ -69,16 +59,22 @@ function PetModule(props: any) {
               onChange={handleChange}
               ref={focus} />
             <select id="selection" className="petSpecies" name="species" value={species} onChange={handleSelect}>
-              <option value="0">🐱</option>
-              <option value="1">🐶</option>
-              <option value="2">🦖</option>
-              <option value="3">🐟</option>
+                <option value="0">{petInsight[0].symbol}</option>
+                <option value="1">{petInsight[1].symbol}</option>
+                <option value="2">{petInsight[2].symbol}</option>
+                <option value="3">{petInsight[3].symbol}</option>
             </select>
             <button className="pet-button ">Rename that Pet!</button>
           </>
-        ) :
-          (
+        ) : (
             <>
+            <h1>Your Pets:</h1>
+              <ul>
+                <li value="🐱">🐱 {petInsight[0].amount}</li>
+                <li value="🐶">🐶 {petInsight[1].amount}</li>
+                <li value="🦖">🦖 {petInsight[2].amount}</li>
+                <li value="🐟">🐟 {petInsight[3].amount}</li>
+              </ul>
               <input
                 type="name"
                 placeholder="Name that pet!"
@@ -89,17 +85,17 @@ function PetModule(props: any) {
                 ref={focus} />
 
               <select id="selection" className="petSpecies" name="species" value={species} onChange={handleSelect}>
-                <option value="0">🐱</option>
-                <option value="1">🐶</option>
-                <option value="2">🦖</option>
-                <option value="3">🐟</option>
+                <option value="0">{petInsight[0].symbol}</option>
+                <option value="1">{petInsight[1].symbol}</option>
+                <option value="2">{petInsight[2].symbol}</option>
+                <option value="3">{petInsight[3].symbol}</option>
               </select>
               <button className="pet-button">add that Pet!</button>
             </>
           )}
 
 
-      </form></>
+      </form>
   )
 }
 
