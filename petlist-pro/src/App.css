@@ -1,40 +1,57 @@
+
+
 @import url(//db.onlinewebfonts.com/c/1c45e28f8e86cc89876f003b953cc3e9?family=SF+Pro+Text);
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: SF Pro Text, Arial, sans-serif;
+  font-family: SF Pro Text, Helvetica, sans-serif;
+}
+
+  :root {
+    --box_bg: 
+    --invert: invert(0);
+  }
+
+
+[data-theme='dark'] {
+  --invert: invert(1);
+  --iv: invert(1);
+  --text_fill: rgb(255, 255, 255);
+}
+
+.background {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  filter: var(--iv);
+  background-image: url(../Assets/background.png);
+  animation: background-scroll 750s linear infinite;
+  transition: 0.9s;
+}
+
+.background:hover {
+  animation: background-scroll 0s linear infinite;
 }
 
 body {
-  background-color: rgb(255, 255, 255);
-	margin: 0;
+  margin: 0;
 	overflow: hidden;
-	animation: background-scroll 100s linear infinite;
+	animation: background-scroll 750s linear infinite;
   transition: 0.9s;
-  background-image: url(../Assets/background.png);
 }
 
 @keyframes background-scroll {
   from {
-  background-position-x: -10000%;
-  background-position-y: -10000%;
- }
+    background-position-x: -10000%;
+    background-position-y: -10000%;
+  }
 }
-
-@keyframes background-scroll-slow {
-  from {
-  background-position-x: -10000%;
-  background-position-y: -10000%;
- }
-}
-body:hover {
-
-  animation: background-scroll-slow 1000s linear infinite;
-
-}
-
 
 .petlistPro {
   display: flex;
@@ -48,42 +65,53 @@ body:hover {
   filter: drop-shadow(0 0 0.75rem rgb(80, 80, 80));
   text-align: center;
   margin: 48px auto;
-  padding-bottom: 32px;
+  padding-bottom: 50px;
 }
 
 h1 {
+  
   font-family: Helvetica;
   margin: 15px;
-  background: #121FCF;
-  background: linear-gradient(to right, #121FCF 0%, #CF2B83 100%);
+  background: linear-gradient(
+    -125deg,
+    rgba(26, 158, 125) 0%,
+    rgb(12, 255, 223) 100%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 ul {
+  filter: var(--invert) !important;
+  color: var(--text_fill);
   display: flex;
   justify-content: center;
   align-items: center;
   list-style-type: none;
-  margin: 5px;
+  margin: 15px;
   overflow: hidden;
+  filter: drop-shadow(0 0 0.75rem rgb(132, 132, 132));
 }
 
 li {
-  margin: 0 15px;
+
+  font-family: Helvetica;
+  font-size: 20px;
+  margin: 0 17.5px;
   float: left;
+
 }
 
 li a {
   
-  color: white;
   text-align: center;
   padding: 16px;
   text-decoration: none;
+
 }
 
 li a:hover {
-  background-color: #111111;
+  background-color: var(--text_fill);
 }
 
 #Footer { 
@@ -104,15 +132,33 @@ li a:hover {
 .petName {
   padding: 14px 32px 14px 16px;
   border-radius: 20px 0 0 20px;
+  border-width: 2px;
+  border-color: rgb(26, 158, 125);
   outline: none;
   width: 320px;
   background: transparent;
-  color: rgb(35, 2, 2);
+  color: var(--text_fill);
   
 }
+
+.petAge {
+  padding: 14px;
+  border-width: 2px;
+  border-color: rgb(26, 158, 125);
+  width: 50px; 
+  cursor: pointer;
+  outline: none;
+  background: transparent;
+  color: var(--text_fill);
+  text-transform: capitalize;
+}
+
 .petSpecies {
   font-size: 24px;
-  padding: 4px 32px 11px 16px;
+  padding: 4px 32px 10px 16px;
+  border-radius: 20px 0 0 20px;
+  border-width: 2px;
+  border-color: rgb(26, 158, 125);
   border-radius: 4px 0 0 4px;
   outline: none;
   height: inherit;
@@ -135,9 +181,9 @@ li a:hover {
   cursor: pointer;
   outline: none;
   background: linear-gradient(
-    90deg,
-    rgba(93, 12, 255, 1) 0%,
-    rgba(155, 0, 250, 1) 100%
+    -125deg,
+    rgba(26, 158, 125) 0%,
+    rgb(12, 255, 223) 100%
   );
   color: #fff;
   text-transform: capitalize;
