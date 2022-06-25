@@ -15,14 +15,15 @@ function App() {
     setTheme(newTheme);
   }
   return (
-      <div className="background" data-theme={theme}>
+    <div className="background" data-theme={theme}>
+      <div className='header'><h2 className='messageBox'></h2></div>
     <div className="petlistPro" data-theme={theme}>
       <div><Petlist/></div>
     </div>
+    <div className='footer'>
       <h1 id='Footer'>Petlist Pro</h1>
-    <button onClick={switchTheme}>
-        Switch to {theme === 'light' ? 'Dark' : 'Light'} Theme
-      </button>
+      <button className='modeSwitch' onClick={switchTheme}>{theme === 'light' ? '🌚' : '☀️'}</button>
+      </div>
     </div>
   );
 }
