@@ -16,13 +16,13 @@ function App() {
   }
   return (
     <div className="background" data-theme={theme}>
-      <div className='header'><h2 className='messageBox'></h2></div>
     <div className="petlistPro" data-theme={theme}>
+      <button className='modeSwitch' onClick={switchTheme}>{theme === 'light' ? '🌚' : '☀️'}</button>
       <div><Petlist/></div>
+      <div className='header'><h2 className='messageBox'></h2></div>
     </div>
     <div className='footer'>
       <h1 id='Footer'>Petlist Pro</h1>
-      <button className='modeSwitch' onClick={switchTheme}>{theme === 'light' ? '🌚' : '☀️'}</button>
       </div>
     </div>
   );
