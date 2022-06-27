@@ -3,7 +3,7 @@ import Pet from './Pet';
 import PetModule from './PetModule';
 import Petoverview from './PetSummary';
 import { petInsight } from './PetModule';
-
+import '../App.css';
 let cats: string | any[] = []
 let dogs: string | any[] = []
 let dinos: string | any[] = []
@@ -58,10 +58,12 @@ function Petlist() {
     petInsight[2].amount = dinos.length
     petInsight[3].amount = fish.length
     return (
-        <div>
+        <div >
             <PetModule onSubmit={addPet}/>
-            <Pet pets={pets} selectedPet={selectedPet} removePet={removePet} editPet={editPet}
+            <div className='listContainer'>
+            <Pet  pets={pets} selectedPet={selectedPet} removePet={removePet} editPet={editPet}
             />
+            </div>
         </div>
     )    
 }

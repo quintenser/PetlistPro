@@ -67,17 +67,20 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: start;
-  width: 620px;
-  min-height: 620px;
+  width: 60vh;
+  height: 75vh;
   background: linear-gradient(145deg, #ffffff, #c1c3c6);
-  border-radius: 15%;
+  border-radius: 65px;
   box-shadow: inset 8.41px 8.41px 15px #C2C4C7, inset -8.41px -8.41px 15px #FFFFFF;
   filter: drop-shadow(0 0 0.75rem rgb(80, 80, 80));
   text-align: center;
   margin: 48px auto;
   margin-bottom: 0px;
 }
-
+.listContainer {
+  max-height: 45vh;
+  overflow: scroll;
+}
 h1 {
   font-family: Helvetica;
   margin: 15px;
@@ -139,7 +142,7 @@ li a:hover {
   border-width: 2px;
   border-color: rgb(26, 158, 125);
   outline: none;
-  width: 320px;
+  width: auto;
   background: transparent;
   color: black;
   cursor: text;
@@ -149,7 +152,7 @@ li a:hover {
   padding: 14px 14px 13.5px 14px;
   border-width: 2px;
   border-color: rgb(26, 158, 125);
-  width: 60px; 
+  max-width: 60px; 
   cursor: text;
   outline: none;
   background: transparent;
