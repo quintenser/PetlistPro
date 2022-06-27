@@ -127,13 +127,10 @@ li a:hover {
   background-color: var(--text_fill);
 }
 
-.selected {
-  text-decoration: line-through;
-  opacity: 0.4;
-}
 
-.petModule {
-  margin-bottom: 32px;
+.messageBox {
+  color: rgb(235, 78, 0);
+  font-size: 2vh;
 }
 
 .petName {
@@ -230,8 +227,42 @@ li a:hover {
   border: 1px solid rgba(255, 255, 255, 0.14);
   color: rgb(29, 29, 29);
   padding: 16px;
-  width: 90%;
+  max-width: 90%;
   transition: 0.5s;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -ms-word-break: break-word;
+  word-break: break-word;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+.pet-box {
+  transition: 0.5s;
+  display: flex;
+  align-items: center;
+  filter: var(--invert) !important;
+  background: transparent;
+  max-width: 90%;
+  cursor: pointer;
+}
+
+.selected {
+  transition: 0.5s;
+  font-size: 8vh;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -ms-word-break: break-word;
+  word-break: break-word;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+  
+  transform: translateX(1.2);
+  transform: translateX(2.5);
 }
 
 .pet-row:hover {

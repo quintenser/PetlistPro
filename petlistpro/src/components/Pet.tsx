@@ -3,8 +3,6 @@ import PetModule from './PetModule';
 import { FaSkullCrossbones } from 'react-icons/fa'
 import { AiOutlineTag } from 'react-icons/ai'
 
-
-
 function Pet({ pets, selectedPet, removePet, editPet }:any) {
     const [edit, setEdit] = useState({
         id: null,
@@ -12,6 +10,7 @@ function Pet({ pets, selectedPet, removePet, editPet }:any) {
         age: 0,
         kind: 0
     })
+
     const submitEdit = (value: any,) => {
         editPet(edit.id, value, edit.age, edit.kind)
         setEdit({
@@ -26,11 +25,12 @@ function Pet({ pets, selectedPet, removePet, editPet }:any) {
     if (edit.id) {
         return <PetModule edit={edit} onSubmit={submitEdit} />
     }
+
     return pets.map((pet:any, index:any) => (
         <div 
         className={pet.isSelected ? 'pet-row selected' : 'pet-row'} 
         key={index}>
-            <div key={pet.id} onClick={() => selectedPet(pet.id)}>
+            <div className={pet.isSelected ? 'pet-box selected' : 'pet-box'}  key={pet.id} onClick={() => selectedPet(pet.id)} >
             {pet.name} {pet.age} {pet.kind}
             </div>
             <div className="icons">

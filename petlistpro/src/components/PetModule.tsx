@@ -3,16 +3,16 @@ import { BsPlusLg } from 'react-icons/bs'
 import { AiOutlineTag } from 'react-icons/ai'
 import Petoverview from './PetSummary'
 const petInsight = [
-  { species: "feline",
+  { 
     amount: 0,
     symbol: '🐱'},
-  { species: "canine",
+  { 
     amount: 0,
     symbol: '🐶'},
-  { species: "jurassic",
+  { 
     amount: 0,
     symbol: '🦖'},
-  { species: "aquatic",
+  { 
     amount: 0,
     symbol: '🐟'},
   ]
@@ -27,7 +27,6 @@ function PetModule(props: any) {
     }
     const handleAge = (event: any) => {
       setAgeInput(event.target.value);
-      console.log(props.edit)
     }
 
     const handleSelect = (event:any) => {
@@ -78,13 +77,7 @@ function PetModule(props: any) {
           </>
         ) : (
             <>
-            <h1>Your Pets:</h1>
-              <ul>
-                <li value="🐱">🐱 {petInsight[0].amount}</li>
-                <li value="🐶">🐶 {petInsight[1].amount}</li>
-                <li value="🦖">🦖 {petInsight[2].amount}</li>
-                <li value="🐟">🐟 {petInsight[3].amount}</li>
-              </ul>
+              <Petoverview/>
               <input
                 type="name"
                 placeholder="Name that pet!"
@@ -109,7 +102,7 @@ function PetModule(props: any) {
               <button className="pet-button"><BsPlusLg/></button>
             </>
           )}
-
+         
 
       </form>
   )

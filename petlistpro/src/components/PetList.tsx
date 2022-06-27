@@ -1,21 +1,32 @@
 import React, {useState} from 'react'
 import Pet from './Pet';
 import PetModule from './PetModule';
-import Petoverview from './PetSummary';
 import { petInsight } from './PetModule';
 import '../App.css';
-let cats: string | any[] = []
-let dogs: string | any[] = []
-let dinos: string | any[] = []
-let fish: string | any[] = []
+
 
 function Petlist() {
+    let cats: string | any[] = []
+    let dogs: string | any[] = []
+    let dinos: string | any[] = []
+    let fish: string | any[] = []
+    let errors= ""
+
     const [pets, setPets] = useState<any>([])
+    const [errorBox, setError] = useState('');
+
     const addPet = (pet: any) => {
         if(!pet.name || /^\s*$/.test(pet.name)) {
+            errors = "Please name your pet!"
+            setError(errors)
             return
         }
-
+        if(!pet.age || /^\s*$/.test(pet.age)) {
+            errors = "Please give your pet an age!"
+            setError(errors)
+            return
+        }
+        setError(errors)
         const newPets: string[] = [pet, ...pets]
 
 
@@ -37,12 +48,10 @@ function Petlist() {
         
     }
 
-
-    
     const selectedPet = (id: number) => {
-        let updatedPets = pets.map((pet: { id: any; }) => {
+        let updatedPets = pets.map((pet:any) => {
             if (pet.id === id) {
-                pets.isSelected = !pets.isSelected;
+                pet.isSelected = !pet.isSelected;
             }
             return pet;
         })
@@ -53,16 +62,18 @@ function Petlist() {
     dogs = [...pets].filter(pet => pet.kind == '🐶');
     dinos = [...pets].filter(pet => pet.kind == '🦖');
     fish = [...pets].filter(pet => pet.kind == '🐟');
+
     petInsight[0].amount = cats.length
     petInsight[1].amount = dogs.length
     petInsight[2].amount = dinos.length
     petInsight[3].amount = fish.length
+
     return (
         <div >
             <PetModule onSubmit={addPet}/>
+            <h2 className='messageBox'> {errorBox} ‎</h2>
             <div className='listContainer'>
-            <Pet  pets={pets} selectedPet={selectedPet} removePet={removePet} editPet={editPet}
-            />
+            <Pet  pets={pets} selectedPet={selectedPet} removePet={removePet} editPet={editPet}/>
             </div>
         </div>
     )    
