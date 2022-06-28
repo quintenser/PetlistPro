@@ -2,6 +2,7 @@ import React, {useState, useEffect, useRef} from 'react'
 import { BsPlusLg } from 'react-icons/bs'
 import { AiOutlineTag } from 'react-icons/ai'
 import Petoverview from './PetSummary'
+
 const petInsight = [
   { 
     amount: 0,
@@ -59,14 +60,16 @@ function PetModule(props: any) {
               value={input}
               name="name"
               className='petName'
-              onChange={handleChange} />
+              onChange={handleChange}
+              maxLength={32} />
               <input
               type="age"
               placeholder="Age"
               value={ageInput}
               name="age"
               className='petAge'
-              onChange={handleAge} />
+              onChange={handleAge}
+              maxLength={3} />
             <select id="selection" className="petSpecies" name="species" value={species} onChange={handleSelect}>
                 <option value="0">{petInsight[0].symbol}</option>
                 <option value="1">{petInsight[1].symbol}</option>
@@ -84,14 +87,17 @@ function PetModule(props: any) {
                 value={input}
                 name="name"
                 className='petName'
-                onChange={handleChange} />
+                onChange={handleChange}
+                maxLength={32} />
+                
               <input
                 type="age"
                 placeholder="Age"
                 value={ageInput}
                 name="age"
                 className='petAge'
-                onChange={handleAge} />
+                onChange={handleAge}
+                maxLength={3} />
 
               <select id="selection" className="petSpecies" name="species" value={species} onChange={handleSelect}>
                 <option value="0">{petInsight[0].symbol}</option>
@@ -107,10 +113,6 @@ function PetModule(props: any) {
       </form>
   )
 }
-
-
-
-
 
 export default PetModule;
 export { petInsight };
