@@ -195,6 +195,23 @@ li a:hover {
   text-transform: capitalize;
 }
 
+
+.pet-button:hover .addIcon {
+  animation: spin 0.5s;
+}
+
+@keyframes spin {
+  100% {transform: rotate(360deg);}
+}
+
+.pet-button:hover .renameButton {
+  animation: flip 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+@keyframes flip {
+ 50% {transform: scaleX(-1);}
+}
+
 .petName.Update {
   border: 2px solid #149fff;
 }

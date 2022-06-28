@@ -76,7 +76,7 @@ function PetModule(props: any) {
                 <option value="2">{petInsight[2].symbol}</option>
                 <option value="3">{petInsight[3].symbol}</option>
             </select>
-            <button className="pet-button "><AiOutlineTag/></button>
+            <button className="pet-button "><AiOutlineTag className='renameButton'/></button>
           </>
         ) : (
             <>
@@ -105,7 +105,7 @@ function PetModule(props: any) {
                 <option value="2">{petInsight[2].symbol}</option>
                 <option value="3">{petInsight[3].symbol}</option>
               </select>
-              <button className="pet-button"><BsPlusLg/></button>
+              <button className="pet-button"><BsPlusLg className='addIcon'/></button>
             </>
           )}
          
